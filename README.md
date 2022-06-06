@@ -27,7 +27,7 @@ $ python create_db.py
 Execute some tests by running `tests.py`.
 
 ```
-$ python create_db.py
+$ python tests.py
 ```
 
 Start the web server by running `app.py`.
