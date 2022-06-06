@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+
+{% block nav_left %}
+
+<a class="btn btn-primary" href="/logout" role="button">Logout</a>
+
+{% endblock %}
+
+{% block content %}
+
+<h3 class="mb-3">Items</h3>
+<table class="table mb-3">
+  <thead>
+    <tr>
+      <th scope="col">Name</th>
+      <th scope="col">Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for item in items %}
+    <tr>
+      <td>{{ item.name }}</td>
+      <td>{{ item.description }}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+<h3 class="mb-3">Create New Item</h3>
+<form class="row g-3" action="/add_item" method="post">
+  <div class="col-12 mb-3 row">
+    <label for="inputName" class="col-sm-2 col-form-label">Name</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" id="inputName" placeholder="name" name="name" value="{{request.form.name}}">
+    </div>
+  </div>
+  <div class="col-12 mb-3 row">
+    <label for="inputDescription" class="col-sm-2 col-form-label">Description</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" id="inputDescription" placeholder="description" name="description" value="{{request.form.description}}">
+    </div>
+  </div>
+  <div class="col-12 mb-3 row">
+    <input class="btn btn-default" type="submit" value="Create">
+  </div>
+</form>
+
+{% endblock %}
